@@ -1,0 +1,17 @@
+{
+  "name": "uapv2502537",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^17.1.5",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
