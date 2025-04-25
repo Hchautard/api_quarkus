@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.acme</groupId>
-    <artifactId>api_quarkus</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <groupId>ceri.sn</groupId>
+    <artifactId>wsrest</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <compiler-plugin.version>3.14.0</compiler-plugin.version>
-        <maven.compiler.release>21</maven.compiler.release>
+        <compiler-plugin.version>3.13.0</compiler-plugin.version>
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.21.2</quarkus.platform.version>
+        <quarkus.platform.version>3.18.3</quarkus.platform.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.5.2</surefire-plugin.version>
     </properties>
@@ -30,18 +30,69 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
+        <!--        <dependency>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-rest</artifactId>
+                </dependency>-->
+        <!--        <dependency>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-rest-jackson</artifactId>
+                </dependency> -->
+
+        <dependency> <!--impl mentation de JAX-RS-->
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-picocli</artifactId>
+            <artifactId>quarkus-resteasy</artifactId>
+            <version>3.18.3</version>
         </dependency>
-        <dependency>
+        <dependency> <!--int gration d /s rialisation en JSON-->
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
+        </dependency>
+        <dependency> <!--int gration JAXB d /s rialisation en XML-->
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-jaxb</artifactId>
+            <version>3.18.3</version>
+        </dependency>
+
+        <dependency> <!--OpenAPI, dont swagger-ui-->
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
+            <version>3.18.3</version>
+        </dependency>
+
+        <dependency>  <!--impl mentation de CDI (Contexts and Dependency Injection)-->
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
+        </dependency>
+
+        <dependency> <!--tests pour REST-->
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
         </dependency>
     </dependencies>
 
